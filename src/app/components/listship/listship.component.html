@@ -1,0 +1,19 @@
+<div *ngIf="ship.length > 0; else noShips">
+  <div *ngFor="let ship of ship">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ ship.nameShip }}</h5>
+        <p class="card-text">ID: {{ship.idShip}}</p>
+        <p class="card-text">Matrícula: {{ ship.registrationNumber }}</p>
+        <p class="card-text">Descripción: {{ ship.description }}</p>
+        <p class="card-text">Amarre: {{ ship.morring }}</p>
+        <p class="card-text">Tarifa: {{ ship.fee }}</p>
+        <button class="btn btn-danger" (click)="deleteShip(ship.idShip)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noShips>
+  <p>No hay barcos disponibles.</p>
+</ng-template>

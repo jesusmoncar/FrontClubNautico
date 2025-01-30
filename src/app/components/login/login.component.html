@@ -1,0 +1,46 @@
+<!-- src/app/components/login/login.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center bg-success text-white">
+          <h4>Iniciar Sesión</h4>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuario:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                [(ngModel)]="form.username"
+                required
+                class="form-control"
+                placeholder="Introduce tu usuario"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña:</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                class="form-control"
+                placeholder="Introduce tu contraseña"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+              Iniciar Sesión
+            </button>
+            <a [routerLink]="'/register'">Registrar nuevo usuario</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
