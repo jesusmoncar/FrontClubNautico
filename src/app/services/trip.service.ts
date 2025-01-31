@@ -11,8 +11,22 @@ export class TripService{
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  createTrip(data: any) {
+  // Registro de barco
+  register(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, data);
+  }
+
+  // Obtener todos los barcos
+  getTrips(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/obtener`);
+  }
+
+  deleteTrip(id:number):Observable<any> {{
+    return this.http.delete(`${this.baseUrl}/deleteTrip/${id}`);
+  }}
+
+  getStatus(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/status`);
   }
 
 }

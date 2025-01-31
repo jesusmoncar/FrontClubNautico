@@ -1,4 +1,123 @@
-body
-{
-  font-size: 20em;
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el header de la página */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Estilo de los botones */
+button {
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Estilo para el botón de eliminación */
+button.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Navbar (app-nav) */
+app-nav {
+  background-color: #343a40;
+  color: white;
+  padding: 15px 0;
+}
+
+app-nav a {
+  color: white;
+  margin-right: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+app-nav a:hover {
+  color: #ffc107;
+}
+
+/* Estilo para los componentes de listas (app-listship, app-list-trip) */
+app-listship, app-list-trip {
+  margin-top: 20px;
+}
+
+/* Tabla con datos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #343a40;
+  color: white;
+  font-size: 16px;
+}
+
+table td {
+  background-color: #f8f9fa;
+}
+
+table tr:nth-child(even) td {
+  background-color: #e9ecef;
+}
+
+/* Paginación y otras opciones */
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.pagination a {
+  color: #007bff;
+  padding: 8px 15px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.alert {
+  margin-top: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
 }

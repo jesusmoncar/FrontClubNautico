@@ -1,0 +1,13 @@
+table th, table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td {
+  font-weight: 500;
+}
+
+p.text-muted {
+  font-size: 1.2rem;
+  font-style: italic;
+}

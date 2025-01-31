@@ -21,6 +21,10 @@ export class ShipService {
     return this.http.get<any[]>(`${this.baseUrl}/getShip`);  // Cambié a un arreglo de barcos
   }
 
+  getShipById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
+  }
+
   deleteShip(id:number):Observable<any> {{
     return this.http.delete(`${this.baseUrl}/deleteShip/${id}`);
   }}

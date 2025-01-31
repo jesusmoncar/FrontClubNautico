@@ -22,14 +22,14 @@
             <a class="nav-link"  routerLink="/createTrip">Crear Viajes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Viajes Pendientes</a>
+            <a class="nav-link" routerLink="/listTrip">Viajes Pendientes</a>
           </li>
         </ng-container>
 
         <!-- Menú para el patrón (role 1) -->
         <ng-container *ngIf="role == 'PATRON'">
           <li class="nav-item">
-            <a class="nav-link" href="#">Viajes Pendientes</a>
+            <a class="nav-link" href="">Viajes Pendientes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Datos de Patrón</a>

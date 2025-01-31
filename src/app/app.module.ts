@@ -12,6 +12,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { CreateShipComponent } from './components/create-ship/create-ship.component';
 import { ListshipComponent } from './components/listship/listship.component';
+import { CreateTripComponent } from './components/trip/create-trip/create-trip.component';
+import { ListTripComponent } from './components/trip/list-trip/list-trip.component';
+import {from} from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -22,14 +26,15 @@ import { ListshipComponent } from './components/listship/listship.component';
     NavComponent,
     LogoutComponent,
     CreateShipComponent,
-    ListshipComponent
+    ListshipComponent,
+    CreateTripComponent,
+    ListTripComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [
     {

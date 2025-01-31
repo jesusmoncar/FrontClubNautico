@@ -6,6 +6,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import {LogoutComponent} from "./components/logout/logout.component";
 import {CreateShipComponent} from './components/create-ship/create-ship.component';
+import {CreateTripComponent} from './components/trip/create-trip/create-trip.component';
+import {UserGuard} from './guards/user.guard';
+import {ListshipComponent} from './components/listship/listship.component';
+import {ListTripComponent} from './components/trip/list-trip/list-trip.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -13,8 +17,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent ,  canActivate: [AuthGuard] }, // Ruta protegida
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {path:"logout",component:LogoutComponent , canActivate: [AuthGuard]},
-  {path:"createShip",component:CreateShipComponent , canActivate: [AuthGuard]},
-  //{path:"createTrip", component:CreateTripsComponent , canActivate: [AuthGuard]},
+  {path:"createShip",component:CreateShipComponent , canActivate: [AuthGuard,UserGuard]},
+  {path:"createTrip", component:CreateTripComponent , canActivate: [AuthGuard,]},
+  {path:"listTrip", component:ListTripComponent , canActivate: [AuthGuard]},
 
 ];
 

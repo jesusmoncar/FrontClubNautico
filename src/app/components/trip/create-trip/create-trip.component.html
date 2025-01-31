@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Crear Viaje</h2>
+
+  <form (ngSubmit)="register()">
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción:</label>
+      <input type="text" id="description" [(ngModel)]="description" name="description" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="shipId" class="form-label">Barco:</label>
+      <select id="shipId" [(ngModel)]="shipId" name="shipId" class="form-select" required>
+        <option *ngFor="let ship of ships" [value]="ship.idShip"> {{ship.shipId}} {{ ship.nameShip }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="fechayHora" class="form-label">Fecha y Hora:</label>
+      <input type="datetime-local" id="fechayHora" [(ngModel)]="fechayHora" name="fechayHora" class="form-control" required>
+    </div>
+
+    <input type="hidden" [(ngModel)]="userId" name="userId">
+
+    <button type="submit" class="btn btn-primary">Crear Viaje</button>
+  </form>
+</div>
