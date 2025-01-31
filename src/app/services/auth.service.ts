@@ -35,6 +35,7 @@ export class AuthService {
   getUser(): Observable<any> {
     return this.http.get<any>(`${this.userUrl}/give`);
   }
+
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);

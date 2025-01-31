@@ -1,20 +1,45 @@
-<table *ngIf="trips.length > 0" class="table table-striped table-bordered">
-  <thead class="thead-dark">
-  <tr>
-    <th>ID</th>
-    <th>Fecha y Hora</th>
-    <th>Descripción</th>
-    <th>Estado</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let trip of trips">
-    <td>{{ trip.idTrip }}</td>
-    <td>{{ trip.fechayHora }}</td>
-    <td>{{ trip.description }}</td>
-    <td>{{ trip.status }}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="container mt-5">
+  <div class="table-responsive w-75 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <table *ngIf="trips.length > 0" class="table table-striped table-bordered table-hover align-middle">
+      <thead class="bg-dark text-white text-center">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Organizador</th>
+        <th scope="col">Barco ID</th>
+        <th scope="col">Fecha y Hora</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let trip of trips" class="text-center">
+        <td class="fw-bold">{{ trip.idTrip }}</td>
+        <td>{{ trip.organizadorName }}</td>
+        <td>{{ trip.shipId}}</td>
+        <!-- queria mostrar el nombre de barco en vez del ID pero no me deja y el caso es
+         que me traigolos datos de barcos correctamente como se pueden ver en la consola-->
+        <td>{{ trip.fechayHora }}</td>
+        <td>{{ trip.description }}</td>
+        <td>
+            <span class="badge px-3 py-2 fs-6"
+                  [ngClass]="{
+                    'bg-primary': trip.status === 'PENDING',
+                    'bg-warning text-dark': trip.status === 'ACCEPTED',
+                    'bg-success': trip.status === 'FINISHED'
+                  }">
+              {{ trip.tripStatus }}
+            </span>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteTrip(trip.idTrip)">Eliminar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-secondary" routerLink="/dashboard">Volver</button>
+  </div>
+</div>
 
-<p *ngIf="trips.length === 0" class="text-center text-muted">No hay viajes disponibles.</p>
+<p *ngIf="trips.length === 0" class="text-center text-muted mt-4 fs-5">No hay viajes disponibles.</p>

@@ -1,3 +1,6 @@
 <app-nav></app-nav>
 
-<app-listship></app-listship>
+<!-- mostrara listar barcos solo cuando el usuario sea USER -->
+<div *ngIf="role ==='USER'">
+  <app-listship></app-listship>
+</div>

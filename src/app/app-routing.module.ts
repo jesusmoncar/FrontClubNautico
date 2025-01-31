@@ -8,8 +8,8 @@ import {LogoutComponent} from "./components/logout/logout.component";
 import {CreateShipComponent} from './components/create-ship/create-ship.component';
 import {CreateTripComponent} from './components/trip/create-trip/create-trip.component';
 import {UserGuard} from './guards/user.guard';
-import {ListshipComponent} from './components/listship/listship.component';
 import {ListTripComponent} from './components/trip/list-trip/list-trip.component';
+
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },

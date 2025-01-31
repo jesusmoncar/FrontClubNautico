@@ -9,7 +9,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component'; // Importa tu interceptor
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { CreateShipComponent } from './components/create-ship/create-ship.component';
 import { ListshipComponent } from './components/listship/listship.component';
 import { CreateTripComponent } from './components/trip/create-trip/create-trip.component';
@@ -24,7 +23,6 @@ import {from} from 'rxjs';
     RegisterComponent,
     DashboardComponent,
     NavComponent,
-    LogoutComponent,
     CreateShipComponent,
     ListshipComponent,
     CreateTripComponent,

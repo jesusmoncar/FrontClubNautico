@@ -27,4 +27,6 @@ export class DashboardComponent {
       }
     );
   }
+
+    protected readonly UserActivation = UserActivation;
 }

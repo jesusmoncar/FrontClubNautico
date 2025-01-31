@@ -37,6 +37,10 @@
     <label for="morring" class="form-label">Amarre Asignado</label>
     <input type="number" class="form-control" id="morring" [(ngModel)]="form.morring" name="morring" readonly>
   </div>
-
+  <div class="text-center">
   <button type="submit" class="btn btn-primary" (click)="createNewShip()">Crear Barco</button>
+
+
+    <button class="btn btn-secondary" routerLink="/dashboard">Volver</button>
+  </div>
 </form>

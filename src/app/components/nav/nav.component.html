@@ -6,15 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Inicio</a>
-        </li>
 
-        <!-- Menú para el usuario (role 0) -->
         <ng-container *ngIf="role == 'USER'">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Datos de Usuario</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link"  routerLink="/createShip">Crear Barcos</a>
           </li>
@@ -24,9 +18,11 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/listTrip">Viajes Pendientes</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">logout</a>
+          </li>
         </ng-container>
 
-        <!-- Menú para el patrón (role 1) -->
         <ng-container *ngIf="role == 'PATRON'">
           <li class="nav-item">
             <a class="nav-link" href="">Viajes Pendientes</a>
@@ -37,9 +33,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Buscar Viajes</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">logout</a>
+          </li>
         </ng-container>
 
-        <!-- Menú para el administrador (role 2) en caso que mede tiempo-->
+        <!-- Menú para el administrador en caso que mede tiempo-->
         <ng-container *ngIf="role == 'ADMIN'">
           <li class="nav-item">
             <a class="nav-link" href="#">Listado de Usuarios</a>
@@ -53,6 +52,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Listado de Viajes</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">logout</a>
+          </li>
         </ng-container>
       </ul>
 
@@ -63,6 +65,7 @@
         <span *ngIf="role == 'PATRON'">Patrón</span>
         <span *ngIf="role == 'ADMIN'">Administrador</span>
       </span>
+
     </div>
   </div>
 </nav>

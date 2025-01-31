@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TripService} from '../../../services/trip.service';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../services/alert.service';
@@ -11,9 +11,9 @@ import {ShipService} from '../../../services/ship.service';
   templateUrl: './list-trip.component.html',
   styleUrl: './list-trip.component.css'
 })
-export class ListTripComponent {
+export class ListTripComponent implements OnInit {
 
-
+  ships: any[] =[];
   trips: any[] = [];  // Arreglo para almacenar los viajes
 
   constructor(
@@ -26,6 +26,7 @@ export class ListTripComponent {
   ngOnInit(): void {
     // Llamada al servicio para obtener todos los viajes
     this.loadTrips();
+    this.getShips();  // Obtener la lista de barcos al iniciar el componente
   }
 
   loadTrips() {
@@ -33,7 +34,7 @@ export class ListTripComponent {
       (data) => {
         console.log('Viajes Traídos:', data);
         this.trips = data;  // Almacena la lista de viajes en el arreglo
-        this.addShipNames();  // Llamamos a la función para agregar los nombres de los barcos
+        this.getShips();  // Llamamos a la función para agregar los nombres de los barcos
       },
       (error) => {
         console.error('Error al obtener los viajes', error);
@@ -42,23 +43,18 @@ export class ListTripComponent {
     );
   }
 
-  addShipNames() {
-    // Para cada viaje, buscamos el nombre del barco usando el shipId
-    this.trips.forEach((trip) => {
-      if (trip.shipId) {
-        console.log('Buscando barco con shipId:', trip.shipId);  // Verifica que shipId está presente
-        this.shipService.getShipById(trip.shipId).subscribe(
-          (shipData) => {
-            console.log('Barco encontrado:', shipData);  // Verifica que recibimos la respuesta correcta
-            trip.shipname = shipData.name;  // Asumiendo que el objeto "ship" tiene el campo "name"
-          },
-          (error) => {
-            console.error('Error al obtener el barco', error);
-            this.alertService.showAlert('No se pudo obtener el nombre del barco.');
-          }
-        );
+  // Obtener los barcos
+  getShips() {
+    this.shipService.getShips().subscribe(
+      (data) => {
+        console.log('Barcos obtenidos:', data);
+        this.ships = data;  // Asignar los barcos a la variable ships
+      },
+      (error) => {
+        console.error('Error al obtener los barcos', error);
+        this.alertService.showAlert('No se pudieron obtener los barcos.');
       }
-    });
+    );
   }
 
   // Función para eliminar un viaje

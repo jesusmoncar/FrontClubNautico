@@ -25,8 +25,5 @@ export class TripService{
     return this.http.delete(`${this.baseUrl}/deleteTrip/${id}`);
   }}
 
-  getStatus(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/status`);
-  }
 
 }
