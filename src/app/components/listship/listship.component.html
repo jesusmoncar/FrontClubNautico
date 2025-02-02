@@ -1,15 +1,13 @@
-<div *ngIf="ship.length > 0; else noShips">
-  <div *ngFor="let ship of ship">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">{{ ship.nameShip }}</h5>
-        <p class="card-text">ID: {{ship.idShip}}</p>
-        <p class="card-text">Matrícula: {{ ship.registrationNumber }}</p>
-        <p class="card-text">Descripción: {{ ship.description }}</p>
-        <p class="card-text">Amarre: {{ ship.morring }}</p>
-        <p class="card-text">Tarifa: {{ ship.fee }}</p>
-        <button class="btn btn-danger" (click)="deleteShip(ship.idShip)">Eliminar</button>
-      </div>
+<div *ngIf="ship.length > 0; else noShips" class="d-flex flex-wrap gap-2 justify-content-center mx-auto" style="max-width: 90%;">
+  <div *ngFor="let ship of ship" class="card small-card p-2 m-2">
+    <div class="card-body">
+      <h6 class="card-title fw-bold">{{ ship.nameShip }}</h6>
+      <p class="mb-1"><strong>Categoría:</strong> {{ ship.type }}</p>
+      <p class="mb-1"><strong>Matrícula:</strong> {{ ship.registrationNumber }}</p>
+      <p class="mb-1"><strong>Descripción:</strong> {{ ship.description }}</p>
+      <p class="mb-1"><strong>Amarre:</strong> {{ ship.morring }}</p>
+      <p class="mb-1"><strong>Tarifa:</strong> {{ ship.fee }}</p>
+      <button class="btn btn-sm btn-danger" (click)="deleteShip(ship.idShip)">Eliminar</button>
     </div>
   </div>
 </div>

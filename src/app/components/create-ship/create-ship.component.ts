@@ -27,7 +27,9 @@ export class CreateShipComponent {
 
 // Lista de amarres disponibles (simulación)
   amarresDisponibles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  amarresOcupados: number[] = []; // Aquí puedes cargar los amarres ya usados desde la BD o backend.
+  amarresOcupados: number[] = []; // cargar los amarres ya usados desde la BD o backend.
+
+  //arreglar la comprobacion de amarres, puede crear mas barcos que amarre
 
   //depende de el tipo de barco que vaya a registrar el usuario se le asigna su tarifa especifica
   updateFeeAndMorring() {
@@ -72,7 +74,7 @@ export class CreateShipComponent {
   createNewShip(){
     this.shipService.register(this.form).subscribe({
       next: (response) => {
-        this.alertService.showAlert('Barco egistrado exitosamente.');
+        this.alertService.showAlert('Barco registrado exitosamente.');
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
